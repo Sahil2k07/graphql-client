@@ -7,8 +7,8 @@ import { signIn } from "next-auth/react";
 
 export default function SigninPage() {
   const [payload, setPayload] = useState({
-    email: "testuser@example.com",
-    password: "supersecure123",
+    email: "",
+    password: "",
   });
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ export default function SigninPage() {
       if (result?.error) {
         setError(result.error);
       } else {
-        router.push("/todo");
+        router.push("/");
       }
     } catch (err: unknown) {
       if (err instanceof Error) {

@@ -19,11 +19,11 @@ export default function SignupPage() {
   const [success, setSuccess] = useState(false);
 
   const [payload, setPayload] = useState<SignupInput>({
-    email: "test@example.com",
-    firstName: "John",
-    lastName: "Doe",
-    password: "test123",
-    userName: "johndoe",
+    email: "",
+    firstName: "",
+    lastName: "",
+    password: "",
+    userName: "",
   });
 
   const router = useRouter();
