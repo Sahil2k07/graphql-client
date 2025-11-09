@@ -11,20 +11,17 @@ import { authOptions } from "@/configs/authOptions";
 
 const httpLink = new HttpLink({
   uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
-  credentials: "include",
 });
 
 const authLink = new SetContextLink(async (prevContext, _) => {
   const session = await getSession();
 
-  const cookie = session?.token
-    ? `${process.env.NEXT_PUBLIC_COOKIE_NAME}=${session.token}`
-    : null;
+  const token = session?.token ? `Bearer ${session.token}` : null;
 
   return {
     headers: {
       ...prevContext.headers,
-      Cookie: cookie,
+      Authorization: token,
     },
   };
 });
@@ -32,14 +29,12 @@ const authLink = new SetContextLink(async (prevContext, _) => {
 const authServerLink = new SetContextLink(async (prevContext, _) => {
   const session = await getServerSession(authOptions);
 
-  const cookie = session?.token
-    ? `${process.env.NEXT_PUBLIC_COOKIE_NAME}=${session?.token}`
-    : null;
+  const token = session?.token ? `Bearer ${session?.token}` : null;
 
   return {
     headers: {
       ...prevContext.headers,
-      Cookie: cookie,
+      Authorization: token,
     },
   };
 });

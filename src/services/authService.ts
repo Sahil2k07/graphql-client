@@ -17,14 +17,7 @@ const SIGNUP_MUTATION = gql`
         firstName: $firstName
         lastName: $lastName
       }
-    ) {
-      token
-      user {
-        id
-        email
-        userName
-      }
-    }
+    )
   }
 `;
 
