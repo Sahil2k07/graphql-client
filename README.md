@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Apollo GraphQL Todo App
+
+A modern Todo application built with Next.js, Apollo Client, and GraphQL, showcasing authentication, CRUD operations, and state management in a full-stack environment.
+
+## Features
+
+- User authentication with NextAuth.js
+- Create, read, update, and delete todos
+- Mark todos as completed, pending, or cancelled
+- Responsive UI with Tailwind CSS
+- Real-time UI updates using Apollo GraphQL
+- Client-side caching with cache invalidation
+- Clean and modern UI with Lucide icons
+
+## Tech Stack
+
+- Frontend: Next.js, React, Tailwind CSS
+- GraphQL Client: Apollo Client
+- Authentication: NextAuth.js (credentials provider)
+- UI: Lucide-react icons
+- Backend: GraphQL server (any GraphQL API)
+
+## Environment Variables
+
+Create a `.env.local` file in the root of your project and add the following:
+
+```dotenv
+NEXT_PUBLIC_GRAPHQL_URL=http://localhost:5000/graphql
+NEXTAUTH_SECRET=3uek76uygj49eri
+NEXTAUTH_URL=http://localhost:3000/signin
+```
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git https://github.com/Sahil2k07/graphql-client.git
+
+cd graphql-client
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Run the development server:
 
-## Learn More
+```bash
+pnpm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open http://localhost:3000 in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Sign up or sign in using the authentication form.
+- Create new todos using the "New Todo" button.
+- Edit, complete, or cancel todos directly from the UI.
+- Todos are fetched from the GraphQL API using Apollo Client.
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Apollo Client caches queries by default. To bypass cache for a query, you can use fetchPolicy: 'network-only'.
+- Tailwind CSS is used for all styling; the UI is responsive and mobile-friendly.
+- Lucide icons provide visual indicators for todo status and actions.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT
